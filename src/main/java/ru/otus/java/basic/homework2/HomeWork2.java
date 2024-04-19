@@ -51,10 +51,7 @@ public class HomeWork2 {
   }
 
   private static void printStrings(int count, String str) {
-    if (count < 0) {
-      count = 0;
-    }
-    while (count-- > 0) {
+    for (int i = 0; i < count; i++) {
       System.out.println(str);
     }
   }
@@ -130,6 +127,11 @@ public class HomeWork2 {
       sumItems += array[i];
     }
 
+    if(sumItems % 2 != 0){
+      System.out.println("There is no such point");
+      return false;
+    }
+
     int sumLeft = 0;
     int i = 0;
 
@@ -159,23 +161,20 @@ public class HomeWork2 {
   }
 
   private static boolean checkIncreasingDecreasing(int[] array, boolean isIncreasing) {
-    boolean result = true;
     if (isIncreasing) {
       for (int i = 0; i < array.length - 1; i++) {
         if (array[i] > array[i + 1]) {
-          result = false;
-          break;
+          return false;
         }
       }
     } else {
       for (int i = 0; i < array.length - 1; i++) {
         if (array[i] < array[i + 1]) {
-          result = false;
-          break;
+          return false;
         }
       }
     }
-    return result;
+    return true;
   }
 
   private static void reversArray(int[] array){
