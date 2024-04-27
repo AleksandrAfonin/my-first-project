@@ -19,7 +19,6 @@ public class HomeWork3 {
     }
     System.out.println("Максимальное значение в массиве: " + findMax(array));
     System.out.println("Сумма элементов второй строки: " + sumSecondString(array));
-
   }
 
   private static int sumOfPositiveElements(int[][] array) {
@@ -45,24 +44,24 @@ public class HomeWork3 {
 
   /**
    * Метод зануляет обе диагонали двуменного массива
+   *
    * @param array - двумерный массив
    */
   private static void zeroDiagonals(int[][] array) {
     for (int i = 0; i < array.length; i++) {
       if (array[i].length - 1 - i < 0) {
         return;
-      } else {
-        array[i][i] = 0;
-        array[i][array[i].length - 1 - i] = 0;
       }
+      array[i][i] = 0;
+      array[i][array[i].length - 1 - i] = 0;
     }
   }
 
-  private static int findMax(int[][] array){
+  private static int findMax(int[][] array) {
     int max = array[0][0];
     for (int i = 0; i < array.length; i++) {
       for (int j = 0; j < array[i].length; j++) {
-        if(array[i][j] > max){
+        if (array[i][j] > max) {
           max = array[i][j];
         }
       }
@@ -70,14 +69,13 @@ public class HomeWork3 {
     return max;
   }
 
-  private static int sumSecondString(int[][] array){
-    int sum = 0;
-    if(array.length < 2){
+  private static int sumSecondString(int[][] array) {
+    if (array.length < 2) {
       return -1;
-    }else{
-      for (int i = 0; i < array[1].length; i++) {
-        sum += array[1][i];
-      }
+    }
+    int sum = 0;
+    for (int i = 0; i < array[1].length; i++) {
+      sum += array[1][i];
     }
     return sum;
   }
