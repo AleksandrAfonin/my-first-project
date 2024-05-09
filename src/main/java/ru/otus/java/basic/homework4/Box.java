@@ -27,18 +27,18 @@ public class Box {
   }
 
   public Box(double size, String color, Boolean isOpen){
-    width = size;
-    height = size;
-    depth = size;
+    this.width = size;
+    this.height = size;
+    this.depth = size;
     this.color = color;
     this.isOpen = isOpen;
     this.item = null;
   }
 
   public Box(double size, String color, Boolean isOpen, String item){
-    width = size;
-    height = size;
-    depth = size;
+    this.width = size;
+    this.height = size;
+    this.depth = size;
     this.color = color;
     this.isOpen = isOpen;
     this.item = item;
@@ -100,6 +100,7 @@ public class Box {
   public void extractItem(){
     if (!isOpen){
       System.out.println("Коробка закрыта, нельзя извлечь");
+      return;
     }
     if (item == null){
       System.out.println("Нечего извлекать из коробки");
