@@ -8,12 +8,14 @@ public class Cat {
   public Cat(String name, int appetite) {
     this.name = name;
     this.appetite = appetite;
-    this.isSatiety = false;
+    //this.isSatiety = false;
+    // Поле по-умолчанию фолсом и заполнится можно было в явном виде не прописывать
   }
 
   public void eat(Plate plate) {
     if (isSatiety) {
       System.out.println("Кот " + this.name + " сыт и есть не будет");
+      //this обычно используется когда есть неоднозначность использования имени поля/аргумента
       return;
     }
     if (!plate.decreaseFood(this.appetite)) {
