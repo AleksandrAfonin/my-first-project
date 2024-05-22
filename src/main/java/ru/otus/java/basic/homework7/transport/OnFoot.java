@@ -1,45 +1,28 @@
 package ru.otus.java.basic.homework7.transport;
 
+import ru.otus.java.basic.homework7.Human;
 import ru.otus.java.basic.homework7.Terrain;
-import ru.otus.java.basic.homework7.Transport;
 
 import java.util.EnumMap;
 import java.util.Map;
 
 public class OnFoot implements Transport {
-  private String name;
-  static int maxForces;
-  static int currentForces;
-  private Terrain[] notMove;
-  private Map<Terrain, Integer> moveTerrain;
+  private Human driver;
+  private static final String name;
+  private static Terrain[] notMove;
+  private static Map<Terrain, Integer> moveTerrain;
 
-  public OnFoot(String name, int forces) {
-    this.name = name;
-    this.maxForces = forces;
-    this.currentForces = forces;
-    this.notMove = new Terrain[]{};
-    this.moveTerrain = new EnumMap<>(Terrain.class);
-    this.moveTerrain.put(Terrain.PLAIN, 2);
-    this.moveTerrain.put(Terrain.DENSE_FOREST, 4);
-    this.moveTerrain.put(Terrain.SWAMP, 7);
+  static {
+    name = "On foot";
+    notMove = new Terrain[]{};
+    moveTerrain = new EnumMap<>(Terrain.class);
+    moveTerrain.put(Terrain.PLAIN, 2);
+    moveTerrain.put(Terrain.DENSE_FOREST, 4);
+    moveTerrain.put(Terrain.SWAMP, 7);
   }
 
-  OnFoot(){}
-
-  public void addForces(int forces){
-    if(forces > maxForces - currentForces){
-      currentForces = maxForces;
-      return;
-    }
-    currentForces += forces;
-  }
-
-  public int getMaxForces() {
-    return maxForces;
-  }
-
-  public int getCurrentForces() {
-    return currentForces;
+  public OnFoot(Human human) {
+    this.driver = human;
   }
 
   @Override
@@ -50,14 +33,26 @@ public class OnFoot implements Transport {
         return false;
       }
     }
+
     int spending = moveTerrain.get(terrain) * distance;
-    if(currentForces < spending){
-      System.out.println("There was not enough forces");
+    if (driver.getCurrentEnergy() < spending) {
+      System.out.println("There was not enough energy");
       return false;
     }
-    currentForces -= spending;
-    System.out.printf("The human moved %s successfully\n", name);
+
+    driver.setCurrentEnergy(driver.getCurrentEnergy() - spending);
+    System.out.printf("The %s moved %s successfully\n", driver.getName(), name);
     return true;
+  }
+
+  @Override
+  public boolean addDriver(Human human) {
+    return false;
+  }
+
+  @Override
+  public boolean deleteDriver() {
+    return false;
   }
 
   @Override
@@ -66,16 +61,16 @@ public class OnFoot implements Transport {
   }
 
   @Override
-  public String getResource(){
-    return currentForces + " forces";
+  public String getResource() {
+    return driver.getCurrentEnergy() + " energy";
   }
 
   @Override
   public String toString() {
     return "OnFoot{" +
-            "name='" + name + '\'' +
-            ", maxForces=" + maxForces +
-            ", currentForces=" + currentForces +
+            "name: '" + name + '\'' +
+            ", maxEnergy: " + driver.getMaxEnergy() +
+            ", currentEnergy: " + driver.getCurrentEnergy() +
             '}';
   }
 }
