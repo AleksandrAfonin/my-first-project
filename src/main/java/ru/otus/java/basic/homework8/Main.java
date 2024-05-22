@@ -7,12 +7,11 @@ public class Main {
             new String[]{"76", "04", "87", "22"},
             new String[]{"10", "05", "90k", "31"},
             new String[]{"88", "09", "57", "82"}};
-    try{
+    try {
       System.out.println("Сумма элементов массива: " + sumStringArray(strings));
-    }catch(AppArraySizeException | AppArrayDataException e){
+    } catch (AppArraySizeException | AppArrayDataException e) {
       e.printStackTrace();
     }
-
   }
 
   private static int sumStringArray(String[][] stringArray) throws AppArrayDataException, AppArraySizeException {
@@ -26,7 +25,7 @@ public class Main {
       for (int j = 0; j < 4; j++) {
         try {
           sum += Integer.parseInt(stringArray[i][j]);
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
           throw new AppArrayDataException("Элемент массива stringArray[" + i + "][" + j +
                   "] не является числом типа int: \"" + stringArray[i][j] + "\"");
         }
