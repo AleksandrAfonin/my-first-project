@@ -14,8 +14,8 @@ public class FibonacciUtils {
     System.out.println(getFibonacciSum((byte) 127));
   }
 
-  public static String getFibonacciSum(byte limit){
-    if (limit < 2){
+  public static String getFibonacciSum(byte limit) {
+    if (limit < 2) {
       return "0";
     }
 

@@ -7,22 +7,23 @@ package ru.otus.java.basic.tests.task1;
  */
 public class WordUtils {
   public static void main(String[] args) {
-  System.out.println(reverseWords(""));
-  System.out.println(reverseWords("word"));
-  System.out.println(reverseWords("Hello my best friend !"));
-}
-  public static String reverseWords(String inputText){
-    if(inputText.isEmpty()){
+    System.out.println(reverseWords(""));
+    System.out.println(reverseWords("word"));
+    System.out.println(reverseWords("Hello my best friend !"));
+  }
+
+  public static String reverseWords(String inputText) {
+    if (inputText.isEmpty()) {
       return "";
     }
 
     String[] words = inputText.trim().split(" ");
-    if (words.length == 1){
+    if (words.length == 1) {
       return inputText;
     }
 
     StringBuilder str = new StringBuilder();
-    for (int i = words.length - 1; i >= 0; i--){
+    for (int i = words.length - 1; i >= 0; i--) {
       str.append(words[i]);
       str.append(" ");
     }
