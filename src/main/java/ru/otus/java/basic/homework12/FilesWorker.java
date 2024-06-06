@@ -35,7 +35,8 @@ public class FilesWorker {
       System.out.println("File name is empty");
       return false;
     }
-    File file = new File(this.directory.getName() + "\\" + name);
+    // Автоматическое создание правильного пути в зависимости от ОС
+    File file = new File(this.directory.getName(), name);
     if (!file.exists()) {
       try {
         if (file.createNewFile()) {
@@ -60,7 +61,7 @@ public class FilesWorker {
       System.out.println("File name is empty");
       return false;
     }
-    File file = new File(this.directory.getName() + "\\" + name);
+    File file = new File(this.directory.getName(), name);
     if (file.exists()) {
       if (file.delete()) {
         System.out.println("The file '" + name + "' deleted !");
@@ -93,7 +94,7 @@ public class FilesWorker {
       System.out.println("File name is empty");
       return false;
     }
-    File file = new File(this.directory + "\\" + name);
+    File file = new File(this.directory, name);
     if (!file.exists()) {
       System.out.println("The file '" + name + "' not exist !");
       return false;
@@ -116,7 +117,7 @@ public class FilesWorker {
       System.out.println("File name is empty");
       return false;
     }
-    File file = new File(this.directory + "\\" + name);
+    File file = new File(this.directory, name);
     if (!file.exists()) {
       System.out.println("The file '" + name + "' not exist !");
       return false;
