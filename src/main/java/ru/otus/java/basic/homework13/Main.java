@@ -9,6 +9,7 @@ public class Main {
     String userInput;
     String result;
 
+    // также не забываем закрывать ресурсы: socket, inputStream, outputStream
     try (Socket socket = new Socket("localhost", 8089)) {
       Client client = new Client(socket);
       System.out.println("Server: " + client.read());
@@ -26,6 +27,7 @@ public class Main {
         System.out.println("Server: " + result);
       }
       System.out.println("Exit");
+      client.closes();
 
     } catch (Exception e) {
       e.printStackTrace();

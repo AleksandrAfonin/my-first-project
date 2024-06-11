@@ -34,6 +34,7 @@ public class Server {
           firstNumber = Double.parseDouble(result[0]);
           secondNumber = Double.parseDouble(result[2]);
           operation = result[1].charAt(0);
+          // можно вынести в отдельный метод
           switch (operation) {
             case '+':
               out.writeUTF(String.valueOf(firstNumber + secondNumber));

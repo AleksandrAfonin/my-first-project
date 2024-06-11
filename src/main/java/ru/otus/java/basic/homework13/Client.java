@@ -21,4 +21,10 @@ public class Client {
   public String read() throws IOException {
     return in.readUTF();
   }
+
+  public void closes() throws IOException {
+    in.close();
+    out.close();
+  }
+
 }
