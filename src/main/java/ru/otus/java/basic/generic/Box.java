@@ -1,6 +1,7 @@
 package ru.otus.java.basic.generic;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Box<T extends Fruit> {
   private ArrayList<T> list;
@@ -26,10 +27,17 @@ public class Box<T extends Fruit> {
   }
 
   public void refillingTo(Box<? super T> box) {
-    for (int i = list.size() - 1; i >= 0; i--) {
-      box.add(list.get(i));
-      list.remove(i);
+    if (box == null) {
+      System.out.println("The receiving box does not exist");
+      return;
     }
+    if (this.equals(box)) {
+      System.out.println("It cannot be poured into the same box");
+      return;
+    }
+
+    box.list.addAll(this.list);
+    this.list.clear();
   }
 
   @Override
@@ -37,5 +45,18 @@ public class Box<T extends Fruit> {
     return "Box{" +
             "list=" + list +
             '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Box<?> box = (Box<?>) o;
+    return Objects.equals(list, box.list);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(list);
   }
 }
