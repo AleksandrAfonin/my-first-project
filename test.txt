@@ -1,0 +1,29 @@
+Программирование включает в себя множество различных языков разработки,
+каждый из которых обладает рядом преимуществ и недостатков,
+а также областей применения. Некоторые ЯП используются как кроссплатформенные,
+а какие-то предусматривают более узкую специализацию.
+Соответствующие нюансы необходимо учесть при выборе языка программирования
+для изучения и использования в дальнейшей работе/проекте.
+
+Одним из наиболее популярных ЯП является Java.
+О нем слышали не только опытные разработчики, но и новички.
+Далее предстоит рассмотреть это средство программирования более подробно.
+Предстоит выяснить, что собой представляет Java, где он используется,
+какими сильными и слабыми сторонами обладает. Эта информация пригодится всем,
+кто планирует заниматься разработкой программного обеспечения и пока не определился с тем,
+какой язык учить для этого.
+
+Programming includes many different development languages,
+each of which has a number of advantages and disadvantages,
+as well as areas of application. Some yaps are used as cross-platform,
+and some provide for a narrower specialization.
+The relevant nuances must be taken into account when choosing a programming language
+to study and use in further work/project.
+
+One of the most popular YAP is Java.
+Not only experienced developers have heard about it, but also beginners.
+Next, we will consider this programming tool in more detail.
+It remains to be seen what Java is, where it is used,
+what strengths and weaknesses it has. This information will be useful to anyone
+who plans to engage in software development and has not yet decided on that,
+what language to learn for this.
