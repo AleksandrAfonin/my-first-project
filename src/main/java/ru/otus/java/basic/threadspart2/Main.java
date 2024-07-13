@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 public class Main {
 
-  static Object monitor = new Object();
+  static final Object monitor = new Object();
   static boolean printA = false;
   static boolean printB = false;
   static boolean printC = true;
