@@ -70,6 +70,7 @@ class ArraysHelperTest {
 
   @ParameterizedTest
   @MethodSource
+  @NullSource
   void containsOneAndTwoFalse(int[] array) {
     Assertions.assertFalse(ah.containsOneAndTwo(array));
   }

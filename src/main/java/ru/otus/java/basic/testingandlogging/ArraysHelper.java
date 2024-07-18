@@ -10,8 +10,7 @@ public class ArraysHelper {
     }
     for (int i = array.length - 1; i >= 0; i--) {
       if (array[i] == 1) {
-        int[] newArray = Arrays.copyOfRange(array, i + 1, array.length);
-        return newArray;
+        return Arrays.copyOfRange(array, i + 1, array.length);
       }
     }
     throw new RuntimeException();
@@ -23,15 +22,14 @@ public class ArraysHelper {
     }
     boolean containsOne = false;
     boolean containsTwo = false;
-    for (int j : array) {
-      if (j == 1) {
+    for (int i : array) {
+      if (i == 1) {
         containsOne = true;
-        continue;
-      } else if (j == 2) {
+      } else if (i == 2) {
         containsTwo = true;
-        continue;
+      } else {
+        return false;
       }
-      return false;
     }
     return containsOne && containsTwo;
   }
